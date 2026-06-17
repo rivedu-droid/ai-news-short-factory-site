@@ -1,63 +1,90 @@
 # AI News Short Factory — TikTok Review Site
 
-Static website package for TikTok Developer Platform app review.
+Static public website for TikTok Developer Platform app review.
+
+AI News Short Factory is a creator workflow tool that helps an authorized creator prepare short-form AI news videos and upload completed videos to the creator’s TikTok inbox/upload flow for manual review and publishing.
+
+The system does **not** auto-publish public posts.
 
 ## Files
 
-| File | Purpose |
-|---|---|
-| `index.html` | Homepage — tool overview, workflow, "no auto-publish" callout |
-| `privacy.html` | Privacy Policy — data collected, TikTok tokens, no data sale, deletion instructions |
-| `terms.html` | Terms of Service — authorized use, no auto-publish, no spam, creator responsibility |
-| `oauth-callback.html` | OAuth redirect target — shows success/error state after TikTok authorization |
+| File                  | Purpose                                                                                     |
+| --------------------- | ------------------------------------------------------------------------------------------- |
+| `index.html`          | Homepage — tool overview, workflow, and “no auto-publish” policy                            |
+| `privacy.html`        | Privacy Policy — data collected, TikTok token handling, no data sale, deletion instructions |
+| `terms.html`          | Terms of Service — authorized use, no auto-publish, no spam/abuse, creator responsibility   |
+| `oauth-callback.html` | OAuth redirect target — displays success/error state after TikTok authorization             |
+| `README.md`           | Deployment and TikTok app configuration notes                                               |
 
 ## Messaging summary
 
-- AI News Short Factory is a **creator workflow tool**, not a bot.
-- It **uploads completed videos as private drafts** using TikTok's Content Posting API.
-- The creator **manually reviews and publishes** inside TikTok.
-- It **never auto-publishes** to a public audience.
-- It **never schedules** public posts.
-- It **never changes** video visibility to public.
-- It **does not sell** user data.
-- All data (tokens, pipeline outputs) is stored **locally on the creator's machine**.
+AI News Short Factory is a creator workflow tool, not a bot.
 
-## Deployment recommendation — GitHub Pages
+It may upload completed videos to the authorized creator’s TikTok inbox/upload flow using TikTok’s Content Posting API. The creator manually reviews, edits, and publishes inside TikTok.
 
-GitHub Pages is the right choice for this review site:
+The system:
 
-- Free, HTTPS by default (TikTok requires HTTPS for redirect URIs).
-- Custom domain support (`yourdomain.com`) if needed for brand consistency.
-- No server to maintain — purely static, no attack surface.
-- Easy to update via git push.
+* Does not auto-publish to a public audience
+* Does not schedule public posts
+* Does not change video visibility to public
+* Does not sell user data
+* Stores TikTok tokens and pipeline outputs locally under the creator’s control
+* Uses TikTok access only for the authorized creator account
 
-### Steps to deploy
+## Deployment
 
-1. Create a new public GitHub repo (e.g., `ai-news-short-factory-site`).
-2. Copy this directory's files into the repo root (or a `docs/` subfolder).
-3. In repo Settings → Pages → Source, select `main` branch / `root` (or `/docs`).
-4. GitHub assigns a URL: `https://<username>.github.io/ai-news-short-factory-site/`
-5. Optionally add a custom domain under Settings → Pages → Custom domain.
+This review site is deployed with GitHub Pages.
 
-### TikTok app configuration
+Live URLs:
 
-Once deployed, use these URLs in your TikTok Developer app:
+| Field                | URL                                                                             |
+| -------------------- | ------------------------------------------------------------------------------- |
+| Website URL          | `https://rivedu-droid.github.io/ai-news-short-factory-site/`                    |
+| Privacy Policy URL   | `https://rivedu-droid.github.io/ai-news-short-factory-site/privacy.html`        |
+| Terms of Service URL | `https://rivedu-droid.github.io/ai-news-short-factory-site/terms.html`          |
+| OAuth Redirect URI   | `https://rivedu-droid.github.io/ai-news-short-factory-site/oauth-callback.html` |
 
-| Field | Value |
-|---|---|
-| **Website URL** | `https://<your-pages-url>/` |
-| **Privacy Policy URL** | `https://<your-pages-url>/privacy.html` |
-| **Terms of Service URL** | `https://<your-pages-url>/terms.html` |
-| **Redirect URI** | `https://<your-pages-url>/oauth-callback.html` (for review) |
+## TikTok app configuration
 
-> **Note:** The production redirect URI should point to `http://localhost:8080/oauth/callback`
-> (the local auth server). The hosted `oauth-callback.html` serves as the registered
-> HTTPS URI that TikTok requires for review; the local server handles actual token exchange.
+Use the URLs above in the TikTok Developer Portal.
 
-## What to do before submitting to TikTok
+Recommended setup:
 
-- [ ] Deploy to GitHub Pages and confirm all four pages load over HTTPS.
-- [ ] Replace `<your-pages-url>` placeholders in the TikTok app config with the real URLs.
-- [ ] Add your real contact email to Privacy Policy §10 and Terms §9 (currently says "listed in README").
-- [ ] Review TikTok's Content Posting API scope requirements and confirm the use-case description matches.
-- [ ] Do **not** add credentials, API keys, or secrets to these files.
+* App type: Web
+* Product: Content Posting API
+* Requested scope: `video.upload`
+* Do not request `video.publish` for this workflow
+* Redirect URI: use the hosted HTTPS OAuth callback URL above, or any other redirect URI explicitly registered in the TikTok app configuration
+
+## OAuth and token handling
+
+TikTok OAuth tokens are not stored in this repository.
+
+Tokens are stored locally by the creator in environment variables or local-only token files. These files are excluded from Git and are never published to GitHub Pages.
+
+No client secrets, access tokens, refresh tokens, API keys, or authorization headers should be committed to this repository.
+
+## Public publishing policy
+
+The tool may prepare and upload content for manual creator review, but the creator remains responsible for final publishing decisions.
+
+The tool must not:
+
+* Publish public TikTok posts automatically
+* Schedule public posts
+* Set video visibility to public through the API
+* Use TikTok Direct Post functionality
+* Post spam, abusive, misleading, or unauthorized content
+
+## Before submitting to TikTok
+
+Confirm:
+
+* Homepage loads over HTTPS
+* Privacy Policy loads over HTTPS
+* Terms of Service loads over HTTPS
+* OAuth callback page loads over HTTPS
+* Contact email is visible in the Privacy Policy and Terms
+* No secrets or internal credentials are present in this repository
+* The TikTok app requests `video.upload`, not `video.publish`
+* The app description clearly states that the creator manually reviews and publishes content inside TikTok
