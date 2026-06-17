@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — AI News Short Factory</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f0f10;
+      color: #e8e8e8;
+      line-height: 1.75;
+    }
+    a { color: #58a6ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: #161618;
+      border-bottom: 1px solid #2a2a2e;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    header nav {
+      margin-left: auto;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 3.5rem auto 5rem;
+      padding: 0 2rem;
+    }
+    .page-meta {
+      font-size: 0.8rem;
+      color: #555;
+      margin-bottom: 2.2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ccc;
+      margin: 2.2rem 0 0.6rem;
+      padding-top: 2rem;
+      border-top: 1px solid #22222a;
+    }
+    h2:first-of-type {
+      border-top: none;
+    }
+    p {
+      font-size: 0.95rem;
+      color: #a0a0b0;
+      margin-bottom: 0.9rem;
+    }
+    ul {
+      margin: 0.5rem 0 0.9rem 1.4rem;
+      font-size: 0.95rem;
+      color: #a0a0b0;
+    }
+    ul li { margin-bottom: 0.35rem; }
+    .highlight-box {
+      background: #161618;
+      border: 1px solid #2a2a2e;
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      margin: 1.2rem 0;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    .highlight-box strong { color: #bbb; }
+
+    footer {
+      border-top: 1px solid #2a2a2e;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #555;
+    }
+    footer a { color: #666; }
+    footer a:hover { color: #aaa; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">AI News Short Factory</a>
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </nav>
+</header>
+
+<main>
+<div class="page">
+
+  <h1>Privacy Policy</h1>
+  <p class="page-meta">Last updated: June 2026</p>
+
+  <p>
+    AI News Short Factory ("the Tool", "we", "our") is a local, single-creator workflow
+    tool. This Privacy Policy explains what data the Tool processes, how it is stored,
+    and your rights in relation to that data.
+  </p>
+  <p>
+    Because the Tool runs entirely on your own hardware, the vast majority of data never
+    leaves your machine. This policy is provided in support of third-party platform
+    integrations (including TikTok) that require a published privacy policy.
+  </p>
+
+  <h2>1. Who this applies to</h2>
+  <p>
+    AI News Short Factory is designed for use by a single authorized creator — the person
+    who installs and operates the Tool. There are no end-user accounts, no public-facing
+    sign-up flows, and no multi-tenant data processing.
+  </p>
+
+  <h2>2. Data collected and how it is used</h2>
+
+  <p>The Tool processes the following categories of data:</p>
+
+  <h2>2a. TikTok OAuth tokens</h2>
+  <p>
+    When you authorize the Tool to deposit draft videos to your TikTok account, TikTok
+    issues an OAuth access token and refresh token. These tokens are:
+  </p>
+  <ul>
+    <li>Stored locally on your machine in a configuration file accessible only to you.</li>
+    <li>Used solely to call the TikTok Content Posting API on your behalf.</li>
+    <li>Never transmitted to any server, cloud service, or third party controlled by the Tool.</li>
+    <li>Subject to TikTok's own token expiry and revocation mechanisms.</li>
+  </ul>
+  <div class="highlight-box">
+    <strong>You can revoke access at any time</strong> via TikTok's
+    <em>Settings &rarr; Security &rarr; Authorized apps</em>. Revocation immediately
+    invalidates all tokens issued to this Tool.
+  </div>
+
+  <h2>2b. Generated video metadata</h2>
+  <p>
+    The Tool generates and stores the following locally as part of normal pipeline operation:
+  </p>
+  <ul>
+    <li>News story sources (URLs, headlines, publication dates) used for script research.</li>
+    <li>AI-generated script text and fact-check results.</li>
+    <li>Rendered video files and associated captions.</li>
+    <li>Pipeline run logs and stage reports (timing, error messages, scoring data).</li>
+  </ul>
+  <p>
+    This data is stored on your local machine in the Tool's working directory.
+    It is not uploaded to any cloud service or third party, except that video files are
+    uploaded to TikTok as private drafts when you trigger an upload.
+  </p>
+
+  <h2>2c. Local storage</h2>
+  <p>
+    All persistent state — including configuration, pipeline history, stage outputs,
+    SQLite databases, and logs — is stored on-disk in the Tool's local working directory.
+    No cloud database, analytics service, or telemetry endpoint is used.
+  </p>
+
+  <h2>2d. Third-party AI services</h2>
+  <p>
+    The Tool sends news story text and script content to third-party large language model
+    APIs (such as OpenAI or Anthropic) to generate scripts and fact-check results.
+    No personal identifiable information about the creator or any individual is deliberately
+    included in these requests. You should review the privacy policies of any AI API
+    providers you configure.
+  </p>
+
+  <h2>3. Data we do not collect</h2>
+  <ul>
+    <li>We do not collect or store TikTok viewer data, analytics, comments, or follower information.</li>
+    <li>We do not operate any server that receives data from your machine.</li>
+    <li>We do not use tracking pixels, cookies, or browser fingerprinting.</li>
+    <li>We do not collect personal information from third parties or data brokers.</li>
+  </ul>
+
+  <h2>4. Sale of data</h2>
+  <p>
+    We do not sell, trade, rent, or otherwise transfer your data — or any data generated
+    by the Tool — to any third party, for any purpose, at any time.
+  </p>
+
+  <h2>5. Data retention</h2>
+  <p>
+    Data is retained on your local machine for as long as you keep it. You can delete any
+    or all pipeline outputs, logs, and configuration files at any time by removing the
+    relevant files from the Tool's working directory.
+  </p>
+  <p>
+    TikTok OAuth tokens remain valid until you revoke them inside TikTok, or until they
+    expire per TikTok's token lifecycle policy.
+  </p>
+
+  <h2>6. How to request deletion</h2>
+  <p>
+    Because all data is stored locally on your machine, you can delete it at any time:
+  </p>
+  <ul>
+    <li>
+      <strong>Pipeline data and logs:</strong> Delete files from the Tool's working
+      directory on your machine.
+    </li>
+    <li>
+      <strong>TikTok OAuth tokens:</strong> Revoke access via
+      <em>TikTok &rarr; Settings &rarr; Security &rarr; Authorized apps</em>, then delete
+      the local token file from the Tool's configuration directory.
+    </li>
+    <li>
+      <strong>Uploaded drafts:</strong> Delete video drafts directly inside TikTok.
+    </li>
+  </ul>
+  <p>
+    For any questions about data deletion, contact us at the address below.
+  </p>
+
+  <h2>7. Security</h2>
+  <p>
+    Token files and configuration are stored with filesystem permissions restricted to
+    your local user account. We recommend keeping your machine's operating system and
+    storage encrypted. The Tool has no network-accessible components — it does not run
+    a public server.
+  </p>
+
+  <h2>8. Children's privacy</h2>
+  <p>
+    The Tool is intended for use by adult content creators. It is not directed at children
+    under 13 (or the applicable age of digital consent in your jurisdiction), and we do not
+    knowingly process any data relating to minors.
+  </p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>
+    If we make material changes to this policy, we will update the "Last updated" date
+    above and note changes in the project changelog. Continued use of the Tool after
+    changes constitutes acceptance of the revised policy.
+  </p>
+
+  <h2>10. Contact</h2>
+  <p>
+    Questions about this Privacy Policy can be directed to the project maintainer via
+    the project's GitHub repository issues page or by email at the address listed in
+    the project README.
+  </p>
+
+</div>
+</main>
+
+<footer>
+  <p>
+    &copy; 2026 AI News Short Factory &mdash;
+    <a href="index.html">Home</a> &middot;
+    <a href="privacy.html">Privacy Policy</a> &middot;
+    <a href="terms.html">Terms of Service</a>
+  </p>
+</footer>
+
+</body>
+</html>

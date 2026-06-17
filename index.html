@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI News Short Factory</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f0f10;
+      color: #e8e8e8;
+      line-height: 1.65;
+    }
+    a { color: #58a6ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      background: #161618;
+      border-bottom: 1px solid #2a2a2e;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    header .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    header nav {
+      margin-left: auto;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      max-width: 780px;
+      margin: 5rem auto 3rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 1.1rem;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: #a0a0b0;
+      max-width: 580px;
+      margin: 0 auto 2.2rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #1c2b1c;
+      border: 1px solid #2e5e2e;
+      color: #5cb85c;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.4rem;
+    }
+
+    .features {
+      max-width: 860px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: #161618;
+      border: 1px solid #2a2a2e;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .card .icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.45rem;
+    }
+    .card p {
+      font-size: 0.88rem;
+      color: #888;
+    }
+
+    .how-it-works {
+      background: #161618;
+      border-top: 1px solid #2a2a2e;
+      border-bottom: 1px solid #2a2a2e;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .how-it-works h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2.5rem;
+    }
+    .steps {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      background: #1a1a1e;
+      border: 1px solid #2a2a2e;
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      text-align: left;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      background: #252530;
+      border: 1px solid #38384a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-top: 0.05rem;
+    }
+    .step-body h4 {
+      font-weight: 700;
+      color: #ddd;
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+    .step-body p {
+      font-size: 0.86rem;
+      color: #777;
+    }
+
+    .important-note {
+      max-width: 680px;
+      margin: 4rem auto;
+      padding: 1.5rem 2rem;
+      background: #191820;
+      border: 1px solid #3a3060;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .important-note h3 {
+      color: #b8a0ff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+    .important-note p {
+      font-size: 0.92rem;
+      color: #a090c0;
+    }
+
+    footer {
+      border-top: 1px solid #2a2a2e;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #555;
+    }
+    footer a { color: #666; }
+    footer a:hover { color: #aaa; }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="logo">AI News Short Factory</span>
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="badge">Creator Workflow Tool</div>
+    <h1>AI-assisted news shorts,<br>reviewed and published by you.</h1>
+    <p>
+      AI News Short Factory is a local, single-creator tool that automates the
+      research and production of short-form news videos — then deposits them as
+      drafts for your personal review before anything goes live.
+    </p>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <div class="icon">📰</div>
+      <h3>Story research</h3>
+      <p>Pulls trending news, scores relevance, and surfaces the best candidates for a short.</p>
+    </div>
+    <div class="card">
+      <div class="icon">✍️</div>
+      <h3>Script generation</h3>
+      <p>Produces a fact-checked script in the creator's editorial voice, ready for review.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>Video rendering</h3>
+      <p>Renders the final short locally using Remotion — no third-party render farm.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📥</div>
+      <h3>Draft upload</h3>
+      <p>Deposits finished videos into your TikTok draft inbox via the official Content Posting API.</p>
+    </div>
+    <div class="card">
+      <div class="icon">👁️</div>
+      <h3>Human review gate</h3>
+      <p>Every video waits for the creator to inspect, edit, and publish manually inside TikTok.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔒</div>
+      <h3>Local-first</h3>
+      <p>All data stays on the creator's machine. No cloud storage, no third-party analytics.</p>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Pipeline runs on a schedule</h4>
+          <p>A daily cron job triggers story research, scoring, scripting, fact-checking, and rendering — all offline on the creator's own hardware.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Creator authorizes via TikTok OAuth</h4>
+          <p>The creator grants a scoped upload token through TikTok's official OAuth flow. The token is stored locally and never shared.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Video is uploaded as a private draft</h4>
+          <p>The finished video is sent to the creator's TikTok draft inbox using the Content Posting API with <code>privacy_level: SELF_ONLY</code>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>Creator reviews and publishes</h4>
+          <p>The creator opens TikTok, inspects the draft, edits caption/hashtags as needed, and taps <em>Post</em> — entirely at their discretion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="important-note">
+    <h3>No auto-publishing</h3>
+    <p>
+      AI News Short Factory never posts content to a public audience automatically.
+      It never schedules public posts, never changes video visibility to public,
+      and never publishes without explicit creator action inside TikTok.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    &copy; 2026 AI News Short Factory &mdash;
+    <a href="privacy.html">Privacy Policy</a> &middot;
+    <a href="terms.html">Terms of Service</a>
+  </p>
+</footer>
+
+</body>
+</html>
